@@ -1,0 +1,60 @@
+<header>
+	<div class="row p-1 bb-blck bg1 m-0">
+		<div class="col-md-1 col-2 text-center py-2 border-right">
+			<i class="fa fa-bars" aria-hidden="true"></i>
+		</div>
+		<div class="col-md-11 col-10 text-right">
+			<i class="p-2 fa fa-bell" aria-hidden="true"></i>
+			<i class="p-2 fa fa-circle" aria-hidden="true"></i>
+			<i class="p-2 fa fa-ellipsis-v" aria-hidden="true"></i>
+		</div>
+	</div>
+</header>
+<div class=" tabsDv">
+ 	 <tabset class="py-2">
+ 	 	<div class="toolBar row py-2 border-bottom bg1 m-0">
+ 	 		<div class="col-md-1 col-3 text-center toolBarLft border-right">
+ 	 			<i class="fa fa-arrow-left" aria-hidden="true" (click)="jsonData.curItem>0?jsonData.curItem=jsonData.curItem-1:jsonData.curItem=0"></i>
+ 	 			<span class="px-2">{{jsonData.curItem+1}}/{{jsonData.items.length}}</span>
+ 	 			<i class="fa fa-arrow-right" aria-hidden="true" (click)="jsonData.curItem<jsonData.items.length-1?jsonData.curItem=jsonData.curItem+1:jsonData.curItem=jsonData.items.length-1"></i>
+ 	 		</div>
+ 	 		<div class="col-md-7 col-9 toolBarMdl">
+ 	 			<h4 class="m-0">{{jsonData.items[jsonData.curItem].head}}</h4>
+ 	 			<p class="m-0"><span>{{jsonData.items[jsonData.curItem].desc}}</span></p>
+ 	 		</div>
+ 	 		<div class="col-md-4 col-12 text-right toolBarRgt" *ngIf="jsonData.toolBarIcn!=undefined">
+ 	 			<div class="toolBarIcn border-right" *ngFor="let icn of jsonData.toolBarIcn | keyvalue">
+ 	 				<p class="p-0">{{icn.value.name}}</p>
+ 	 				<span *ngIf="icn.value.name!='data'">
+ 	 					<i class="{{icn.value.icon}} {{icn.value.status}}" aria-hidden="true" (click)="changeStatus(icn.key)"></i>
+ 	 				</span>
+ 	 				<span *ngIf="icn.value.icon.length>0 && icn.value.name=='data'">
+ 	 					<i *ngFor="let i of icn.value.icon" class="{{i}} px-1 {{icn.value.status}}" aria-hidden="true" (click)="changeStatus(icn.key)"></i>
+ 	 				</span>
+ 	 			</div>
+ 	 		</div>
+ 	 	</div>
+	    <tab heading="{{tb.key}}" id="{{tb.key}}" *ngFor="let tb of jsonData.tabs | keyvalue" (selectTab)="tabClck(tb.key)">
+	    	<div *ngIf="tb.value.list!=undefined" class="p-3 ">
+	    		<ul class="tabContnt ml-30">
+	    			<li *ngFor="let i of tb.value.list">{{i}}</li>
+	    			<li *ngFor="let b of tb.value.button"><button class="btn btn-info px-2 py-1" (click)="switchTab(b.action)">{{b.name}}</button></li>
+	    		</ul>
+	    		<div *ngIf="tb.value.graph=='Y'">
+	    			<app-chart></app-chart>
+	    		</div>
+	    		
+	    	</div>
+
+	    </tab>
+	  </tabset>
+	  <div class="btn-group ddCmn" dropdown>
+		  <button id="dropdownMenuButton" dropdownToggle type="button" class="btn dropdown-toggle" aria-controls="dropdown-basic"><span class="caret"></span>{{jsonData.ddSelName}}
+		  </button>
+		  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+		      role="menu" aria-labelledby="button-basic">
+		    <li role="menuitem" *ngFor="let dd of jsonData.ddList"><a class="dropdown-item">{{dd}}</a></li>
+		  </ul>
+	</div>
+
+</div>

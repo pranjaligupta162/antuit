@@ -1,0 +1,60 @@
+i{cursor: pointer;}
+.ddCmn{position: absolute;right: 15px;top: 0;}
+.ddCmn #dropdownMenuButton{background: transparent!important;font-size: 14px;padding: 10px;}
+.tabsDv{position: relative;height: calc(100vh - 49px);background: #f7fafd;}
+.dropdown:focus{outline: none!important;}
+#dropdownMenuButton:focus{outline: none!important;box-shadow:none!important;}
+.toolBarMdl h4{font-size: 19px;font-weight: 700;}
+.toolBarMdl span{font-size: 13px;}
+.toolBarLft{padding: 11px 0px;}
+.toolBarIcn{
+	text-align: center;
+    height: 50px;
+    width: 80px;
+    float: left;
+}
+.toolBarIcn:last-child{
+	border-right: 0px !important;
+}
+.toolBarIcn p{
+	color: #666;
+    font-weight: 100;
+    font-size: 14px;
+}
+.toolBarRgt i{
+	border-radius: 100%;
+    font-size: 14px;
+    height: 24px;
+    width: 24px;
+    padding-top: 5px;
+}
+.toolBarRgt .active{opacity: 1;}
+.toolBarRgt .inactive{opacity: 0.5;}
+.toolBarRgt .onSelect{
+	color:#047afb;
+}
+.toolBarRgt .onOfStats{
+    background: #047afb;
+    color: #fff;
+}
+.toolBarLft i{opacity: 0.5;}
+.bb-blck{border-bottom:1px solid #000;}
+.tabContnt li{font-size: 13px;}
+.m-0{margin: 0px;}
+.ml-30{margin-left: 30px;}
+
+@media only screen and (max-width: 1023px){
+	.ddCmn #dropdownMenuButton{font-size: 10px;}
+	.toolBarIcn{width: 65px;}
+	.toolBarIcn:last-child{width: 78px;}
+	.toolBarRgt{padding: 5px 0px 0px;
+	    margin-top: 10px;
+	    border-top: 1px solid #dee2e7;}
+	.ddCmn{right: 0px;}
+}
+
+
+
+
+
+
